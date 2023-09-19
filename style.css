@@ -1,0 +1,185 @@
+
+    .shortcut {
+      display: table-cell !important;
+      background-color: #f7f7f9;
+      border-radius: 50%;
+      border: 3px solid #f7f7f9;
+      font-size: 2.5em !important;
+      width: 3em;
+      height: 3em;
+      text-align: center;
+      vertical-align: middle !important;
+    }
+
+    html,
+    body,
+    .view {
+      height: 100%;
+    }
+
+    #mobile-box {
+      width: 360px;
+    }
+
+    .card {
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+    }
+
+    .card .view {
+      -webkit-border-top-left-radius: 10px;
+      border-top-left-radius: 10px;
+      -webkit-border-top-right-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .card h5 a {
+      color: #0d47a1;
+    }
+
+    .card h5 a:hover {
+      color: #072f6b;
+    }
+
+    #playPause {
+      float: left;
+    }
+
+    #playPause {
+      cursor: pointer;
+      position: relative;
+      top: calc(50% - 1em);
+    }
+
+    #progress {
+      -webkit-appearance: none;
+      /*width: 90%;*/
+      height: 4px;
+      margin-top: 20px;
+      margin-left: 10px;
+      float: left;
+      -webkit-border-radius: 15px;
+      border-radius: 15px;
+      vertical-align: middle;
+      background: transparent;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    #progress::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 9px;
+      height: 9px;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      margin-top: -3px;
+      background: black;
+      cursor: pointer;
+    }
+
+    .music-container.scrubbing .timeline::before,
+    .timeline-container:hover .timeline::before {
+      display: block;
+    }
+
+    .music-container.scrubbing .thumb-indicator,
+    .timeline-container:hover .thumb-indicator {
+      --scale: 1;
+    }
+
+    /*When scrubbing double in size*/
+    .music-container.scrubbing .timeline,
+    .timeline-container .timeline {
+      height: 100%;
+    }
+
+    .music-container.scrubbing .thumb-indicator,
+    .timeline-container:hover .thumb-indicator {
+      --scale: 1;
+    }
+
+    /* Timeline Container */
+    .timeline-container {
+      height: .38rem;
+      cursor: pointer;
+      /*width: 60%;*/
+      min-width: 0;
+    }
+
+    /* Time */
+    .current-time,
+    .total-time {
+      padding: 10px;
+    }
+
+    /* Time Slider */
+    .timeline {
+      background-color: rgba(100, 100, 100, .5);
+      /*margin-left: .5rem;
+      margin-right: .5rem;*/
+      /*Rounds Edges*/
+      border-radius: .5rem;
+      position: relative;
+    }
+
+    /*Time Preview*/
+    .timeline::before {
+      content: "";
+      position: absolute;
+      /*Starts to the left*/
+      left: .2rem;
+      /*Fills full size of section*/
+      top: 0;
+      bottom: 0;
+      /*Right value is 100% - preview position x 100%*/
+      right: calc(100% - var(--preview-position) * 100%);
+      background-color: rgb(150, 150, 150);
+      /*Rounds Edges*/
+      border-radius: .4rem;
+      display: none;
+    }
+
+    /*Timeline Progress*/
+    .timeline::after {
+      content: "";
+      position: absolute;
+      /*Starts to the left*/
+      left: 0;
+      /*Fills full size of section*/
+      top: 0;
+      bottom: 0;
+      /*Right value is 100% - progress position x 100%*/
+      right: calc(100% - var(--progress-position) * 100%);
+      background-color: var(--background);
+      /*Rounds Edges*/
+      border-radius: .4rem;
+    }
+
+    /*Timeline thumb indicator*/
+    .timeline .thumb-indicator {
+      --scale: 0;
+      position: absolute;
+      /*Center circle by half of its width*/
+      transform: translateX(-50%) scale(var(--scale));
+      /*Height twice the size of bar*/
+      height: 200%;
+      /*Keep in middle of bar*/
+      top: -50%;
+      /*Determines position. Progress position x 100%*/
+      left: calc(var(--progress-position) * 100%);
+      background-color: white;
+      border-radius: 50%;
+      transition: transform 150ms ease-in-out;
+      aspect-ratio: 1 / 1;
+      z-index: 1;
+    }
+
+    /* Volume and Timeline Slider Thumb */
+    .timeline::-webkit-slider-thumb,
+    .volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      border: none;
+      outline: none;
+      background: #eeeae6;
+    }
+  
